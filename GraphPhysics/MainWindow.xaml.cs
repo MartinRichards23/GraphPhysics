@@ -10,9 +10,6 @@ using SystemPlus.Windows;
 
 namespace GraphPhysics
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow
     {
         readonly Random rand = new Random();
@@ -28,33 +25,30 @@ namespace GraphPhysics
             cmboPhysics.SelectedIndex = 1;            
         }
 
-        void cmboPhysics_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        #region Event handlers
+
+        void CmboPhysics_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             PhysicsProvider physics = (PhysicsProvider)cmboPhysics.SelectedItem;
             myNodeControl.Physics = physics;
         }
-
-        void btnAddOne_Click(object sender, RoutedEventArgs e)
+        
+        void BtnAddGrid_Click(object sender, RoutedEventArgs e)
         {
-            AddOne();
+            AddGrid(10, 10, chkTangled.IsChecked == true, chkRandomMass.IsChecked == true);
         }
 
-        void btnAddGrid_Click(object sender, RoutedEventArgs e)
-        {
-            AddGrid(20, 20, chkTangled.IsChecked == true, chkRandomMass.IsChecked == true);
-        }
-
-        void btnAddTree_Click(object sender, RoutedEventArgs e)
+        void BtnAddTree_Click(object sender, RoutedEventArgs e)
         {
             AddTree(4);
         }
 
-        private void btnSpiral_Click(object sender, RoutedEventArgs e)
+        private void BtnSpiral_Click(object sender, RoutedEventArgs e)
         {
             AddSpiral(100);
         }
 
-        void myNodeControl_NodeClicked(GraphItemClickedEventArgs args)
+        void MyNodeControl_NodeClicked(GraphItemClickedEventArgs args)
         {
             NodeBase node = args.Item as NodeBase;
 
@@ -74,15 +68,17 @@ namespace GraphPhysics
             myNodeControl.ResetView();
         }
 
-        void btnClearData_Click(object sender, RoutedEventArgs e)
+        void BtnClearData_Click(object sender, RoutedEventArgs e)
         {
             myNodeControl.ClearAll();
         }
 
-        private void btnFitAll_Click(object sender, RoutedEventArgs e)
+        private void BtnFitAll_Click(object sender, RoutedEventArgs e)
         {
             myNodeControl.FitAll();
         }
+
+        #endregion
 
         public void AddOne()
         {
@@ -106,7 +102,7 @@ namespace GraphPhysics
                 for (int y = 0; y < height; y++)
                 {
                     Color col = ColourTools.GetRainbowColor(count, 0, total);
-                    double mass = 1;
+                    double mass = 0.5;
                     if (randomMass)
                         mass = 0.5 + rand.NextDouble() * 2;
 
@@ -178,8 +174,7 @@ namespace GraphPhysics
                 AddSubNodes(child, depth + 1, maxDepth);
             }
         }
-
-
+        
         public void AddSpiral(int count)
         {
             Point origin = myNodeControl.Centre;

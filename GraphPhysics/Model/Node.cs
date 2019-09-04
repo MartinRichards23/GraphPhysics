@@ -26,7 +26,7 @@ namespace GraphPhysics.Model
 
         private void UpdateText()
         {
-            formattedText = new FormattedText("Business cat!", CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface("Helvetica"), 12, BrushCache.GetBrush(Colors.White));
+            formattedText = new FormattedText("text!", CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface("Helvetica"), 12, BrushCache.GetBrush(Colors.White));
         }
 
         public override void Draw(DrawingContext dc, DrawParameters parameters)
@@ -44,8 +44,8 @@ namespace GraphPhysics.Model
             if (parameters.ZoomLevel > DetailThreshold)
             {
                 // draw text
-                Point textPosition = new Point(Position.X - formattedText.Width / 2, Position.Y + radius);
-                dc.DrawText(formattedText, textPosition);
+                //Point textPosition = new Point(Position.X - formattedText.Width / 2, Position.Y + radius);
+                //dc.DrawText(formattedText, textPosition);
 
                 // draw image
                 if (image != null)

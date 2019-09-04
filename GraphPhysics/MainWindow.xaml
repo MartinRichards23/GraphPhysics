@@ -4,7 +4,7 @@
         xmlns:z="clr-namespace:GraphPhysics"
         xmlns:u="clr-namespace:SystemPlus.Windows.Controls;assembly=SystemPlus.Windows"
         WindowState="Maximized"
-        Title="NodeGraph" Height="800" Width="1000">
+        Title="GraphPhysics" Height="800" Width="1000">
     <Window.Resources>
         <z:PhysicsTemplateSelector x:Key="physicsTemplateSelector" />
 
@@ -69,18 +69,16 @@
     <DockPanel>
         <Grid Background="AliceBlue" Height="130" DockPanel.Dock="Top">
             <Button Name="btnResetView" Content="Reset view" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-            <Button Name="btnFitAll" Content="Fit all" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="btnFitAll_Click"/>
-            <Button Name="btnClearData" Content="Clear data" HorizontalAlignment="Left" Margin="330,72,0,0" VerticalAlignment="Top" Width="75" Click="btnClearData_Click" RenderTransformOrigin="1.258,2.031" />
+            <Button Name="btnFitAll" Content="Fit all" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="BtnFitAll_Click"/>
+            <Button Name="btnClearData" Content="Clear data" HorizontalAlignment="Left" Margin="330,72,0,0" VerticalAlignment="Top" Width="75" Click="BtnClearData_Click" RenderTransformOrigin="1.258,2.031" />
            
             <u:NumericUpDown HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="75" Value="{Binding ElementName=myNodeControl, Path=Zoom, Mode=TwoWay}" Increment="0.01" />
-
-            <Button Name="btnAddOne" Content="Add 1" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="btnAddOne_Click"/>
-            <Button Name="btnAddGrid" Content="Add grid" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="75" Click="btnAddGrid_Click"/>
-            <Button Name="btnAddTree" Content="Add tree" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="75" Click="btnAddTree_Click"/>
-            <Button Name="btnSpiral" Content="Add spiral" HorizontalAlignment="Left" Margin="330,10,0,0" VerticalAlignment="Top" Width="75" Click="btnSpiral_Click"/>
-            <CheckBox Name="chkTangled" Content="Tangled" HorizontalAlignment="Left" Margin="170,35,0,0" VerticalAlignment="Top"/>
+            <Button Name="btnAddGrid" Content="Add grid" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="75" Click="BtnAddGrid_Click"/>
+            <Button Name="btnAddTree" Content="Add tree" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="75" Click="BtnAddTree_Click"/>
+            <Button Name="btnSpiral" Content="Add spiral" HorizontalAlignment="Left" Margin="330,10,0,0" VerticalAlignment="Top" Width="75" Click="BtnSpiral_Click"/>
+            <CheckBox Name="chkTangled" Content="Tangled" HorizontalAlignment="Left" Margin="170,35,0,0" VerticalAlignment="Top" IsChecked="True"/>
             <CheckBox Name="chkRandomMass" Content="Random mass" HorizontalAlignment="Left" Margin="170,55,0,0" VerticalAlignment="Top"/>
-             <ComboBox Name="cmboPhysics" HorizontalAlignment="Right" Margin="0,3,333,0" VerticalAlignment="Top" Width="104" SelectionChanged="cmboPhysics_SelectionChanged" />
+             <ComboBox Name="cmboPhysics" HorizontalAlignment="Right" Margin="0,3,333,0" VerticalAlignment="Top" Width="104" SelectionChanged="CmboPhysics_SelectionChanged" />
            
             <TextBlock HorizontalAlignment="Right" Margin="0,3,239,0" TextWrapping="Wrap" Text="World paramters" VerticalAlignment="Top"/>
             <ContentControl Name="panelContent" Content="{Binding Path=Physics, ElementName=myNodeControl}" ContentTemplateSelector="{StaticResource physicsTemplateSelector}" HorizontalAlignment="Right" Margin="0,19,148,0" VerticalAlignment="Top" Width="180" />
@@ -101,7 +99,7 @@
             </StackPanel>
         </Grid>
         <Grid ClipToBounds="True">
-            <z:NodeControl x:Name="myNodeControl" NodeClicked="myNodeControl_NodeClicked" />
+            <z:NodeControl x:Name="myNodeControl" NodeClicked="MyNodeControl_NodeClicked" />
         </Grid>
     </DockPanel>
 </Window>

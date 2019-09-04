@@ -22,7 +22,6 @@ namespace GraphPhysics.Model
         public Edge(NodeBase from, NodeBase to, Color colour)
             : base(from, to, colour)
         {
-
             UpdateText();
         }
 
@@ -41,20 +40,20 @@ namespace GraphPhysics.Model
 
         private void UpdateText()
         {
-            formattedText = new FormattedText("Friends", CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface("Helvetica"), 12, BrushCache.GetBrush(Colors.White));
+            formattedText = new FormattedText("Text!", CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface("Helvetica"), 12, BrushCache.GetBrush(Colors.White));
         }
 
         public override void Draw(DrawingContext dc, DrawParameters parameters)
         {
             dc.DrawLine(pen, From.Position, To.Position);
 
-            if (parameters.ZoomLevel > DetailThreshold)
-            {
-                Point position = VectorTools.MidPoint(From.Position, To.Position);
-                Point textPosition = new Point(position.X - formattedText.Width / 2, position.Y - formattedText.Height / 2);
+            //if (parameters.ZoomLevel > DetailThreshold)
+            //{
+            //    Point position = VectorTools.MidPoint(From.Position, To.Position);
+            //    Point textPosition = new Point(position.X - formattedText.Width / 2, position.Y - formattedText.Height / 2);
                 
-                dc.DrawText(formattedText, textPosition);
-            }
+            //    dc.DrawText(formattedText, textPosition);
+            //}
         }
     }
 }

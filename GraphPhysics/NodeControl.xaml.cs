@@ -416,6 +416,8 @@ namespace GraphPhysics
 
         #endregion
 
+        #region Public methods
+
         public void AddNode(NodeBase node)
         {
             myCanvas.AddNode(node);
@@ -430,10 +432,7 @@ namespace GraphPhysics
         {
             myCanvas.ClearAll();
         }
-
-
-        #region Moving / zooming
-
+        
         /// <summary>
         /// Animate moves current position
         /// </summary>
