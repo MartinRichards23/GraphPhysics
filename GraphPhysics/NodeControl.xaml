@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="GraphPhysics.NodeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:z="clr-namespace:GraphPhysics"
+             mc:Ignorable="d" 
+             Background="Black"
+             MouseMove="UserControl_MouseMove"
+             MouseDown="UserControl_MouseDown"
+             MouseUp="UserControl_MouseUp"
+             MouseWheel="UserControl_MouseWheel"             
+             PreviewMouseMove="UserControl_PreviewMouseMove"
+             PreviewMouseDown="UserControl_PreviewMouseDown"
+             PreviewMouseUp="UserControl_PreviewMouseUp"             
+             PreviewMouseWheel="UserControl_PreviewMouseWheel"
+             SizeChanged="UserControl_SizeChanged"
+             d:DesignHeight="300" d:DesignWidth="300" Focusable="True">
+    <Grid>
+        <z:MyCanvas x:Name="myCanvas" Rendering="myCanvas_Rendering" />
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="169" >
+            <TextBlock Foreground="White"  Name="txtFps" />
+            <TextBlock Foreground="White"  Name="txtMousePos" />
+            <TextBlock Foreground="White"  Name="txtCentrePos" />
+            <TextBlock Foreground="White"  Name="txtTpoLeftPos" />
+            <TextBlock Foreground="White"  Name="txtContent" />
+        </StackPanel>
+    </Grid>
+</UserControl>

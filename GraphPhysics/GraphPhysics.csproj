@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SystemPlus">
+      <HintPath>.\NodeGraph\SystemPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="SystemPlus.Windows">
+      <HintPath>.\NodeGraphWpf\NodeGraph\SystemPlus.Windows.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
