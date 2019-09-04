@@ -1,9 +1,5 @@
 ﻿using GraphPhysics.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphPhysics
 {
@@ -13,7 +9,7 @@ namespace GraphPhysics
 
         public void AddRange(IEnumerable<T> collection)
         {
-            foreach(T item in collection)
+            foreach (T item in collection)
             {
                 Add(item);
             }
@@ -33,7 +29,7 @@ namespace GraphPhysics
 
         public void Clear()
         {
-            foreach(T item in items)
+            foreach (T item in items)
             {
                 item.IsSelected = false;
             }

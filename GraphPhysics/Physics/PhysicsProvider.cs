@@ -18,7 +18,7 @@ namespace GraphPhysics.Physics
         protected List<EdgeBase> edges;
         protected QuadTree quadTree;
 
-        protected double friction = 0.05;
+        protected double friction = 0.03;
         private double time = 1;
 
         protected double bounceEfficiency = 0.8;
@@ -102,6 +102,8 @@ namespace GraphPhysics.Physics
 
         #endregion
 
+        #region Public methods
+
         public void DoPhysics(TimeSpan duration)
         {
             frames++;
@@ -120,6 +122,15 @@ namespace GraphPhysics.Physics
 
             UpdatePositions(duration);
         }
+        
+        public override string ToString()
+        {
+            return Name;
+        }
+
+        #endregion
+
+        #region Protected methods
 
         protected abstract void UpdatePhysics(TimeSpan duration);
 
@@ -189,6 +200,8 @@ namespace GraphPhysics.Physics
             });
         }
 
+        #endregion
+
         static void CalcNodeCollision(NodeBase nodeA, NodeBase nodeB, double bounceEfficiency)
         {
             double length = (nodeA.Position - nodeB.Position).Length;
@@ -221,11 +234,6 @@ namespace GraphPhysics.Physics
 
             nodeA.Velocity = new Vector(vx1, vy1);
             nodeB.Velocity = new Vector(vx2, vy2);
-        }
-
-        public override string ToString()
-        {
-            return Name;
         }
 
         public static bool IsBad(Vector v)

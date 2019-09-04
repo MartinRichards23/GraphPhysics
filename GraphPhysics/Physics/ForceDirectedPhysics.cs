@@ -9,8 +9,8 @@ namespace GraphPhysics.Physics
     {
         #region Fields
 
-        double charge = 4;
-        double edgeSpring = 0.002;
+        double charge = 6;
+        double edgeSpring = 0.003;
 
         #endregion
 

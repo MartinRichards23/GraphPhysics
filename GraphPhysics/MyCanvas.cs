@@ -17,9 +17,6 @@ using SystemPlus.Threading;
 
 namespace GraphPhysics
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class MyCanvas : Canvas
     {
         #region Fields
@@ -72,13 +69,6 @@ namespace GraphPhysics
             //physicsThread.Start();
 
             SizeChanged += MyCanvas_SizeChanged;
-        }
-
-        void MyCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            scale.CenterX = this.ActualWidth / 2;
-            scale.CenterY = this.ActualHeight / 2;
-            Invalidate();
         }
 
         #region Properties
@@ -217,6 +207,13 @@ namespace GraphPhysics
 
                 physics.DoPhysics(duration);
             }
+        }
+
+        void MyCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            scale.CenterX = this.ActualWidth / 2;
+            scale.CenterY = this.ActualHeight / 2;
+            Invalidate();
         }
 
         void timer_Tick(object sender, EventArgs e)
