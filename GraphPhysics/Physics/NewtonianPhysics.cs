@@ -1,6 +1,6 @@
-﻿using System;
+﻿using GraphPhysics.Model;
+using System;
 using System.Windows;
-using GraphPhysics.Model;
 
 namespace GraphPhysics.Physics
 {

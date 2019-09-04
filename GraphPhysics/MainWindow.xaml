@@ -10,19 +10,19 @@
 
         <DataTemplate x:Key="forceDirectedTemplate">
             <StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                     <TextBlock Width="70" Text="Time"/>
                     <u:NumericUpDown HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Value="{Binding Path=Time, Mode=TwoWay}" Increment="0.1" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                     <TextBlock Width="70" Text="Charge"/>
                     <u:NumericUpDown HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Value="{Binding Path=Charge, Mode=TwoWay}" Increment="0.1" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                     <TextBlock Width="70" Text="Edge spring"/>
                     <u:NumericUpDown HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Value="{Binding Path=EdgeSpring, Mode=TwoWay}" Increment="0.0001"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                     <TextBlock Width="70" Text="Friction"/>
                     <u:NumericUpDown HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Value="{Binding Path=Friction, Mode=TwoWay}" MinValue="0.1" MaxValue="1" Increment="0.1"/>
                 </StackPanel>
@@ -67,14 +67,24 @@
 
     </Window.Resources>
     <DockPanel>
-        <Grid Background="AliceBlue" Height="120" DockPanel.Dock="Top">
+        <Grid Background="AliceBlue" Height="130" DockPanel.Dock="Top">
             <Button Name="btnResetView" Content="Reset view" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+            <Button Name="btnFitAll" Content="Fit all" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="btnFitAll_Click"/>
             <Button Name="btnClearData" Content="Clear data" HorizontalAlignment="Left" Margin="330,72,0,0" VerticalAlignment="Top" Width="75" Click="btnClearData_Click" RenderTransformOrigin="1.258,2.031" />
-            <ComboBox Name="cmboPhysics" HorizontalAlignment="Right" Margin="0,3,333,0" VerticalAlignment="Top" Width="104" SelectionChanged="cmboPhysics_SelectionChanged" />
-            <ContentControl Name="btnReset" Content="{Binding Path=Physics, ElementName=myNodeControl}" ContentTemplateSelector="{StaticResource physicsTemplateSelector}" HorizontalAlignment="Right" Margin="0,19,148,0" VerticalAlignment="Top" Width="180" Height="101" />
+           
+            <u:NumericUpDown HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="75" Value="{Binding ElementName=myNodeControl, Path=Zoom, Mode=TwoWay}" Increment="0.01" />
+
             <Button Name="btnAddOne" Content="Add 1" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="btnAddOne_Click"/>
             <Button Name="btnAddGrid" Content="Add grid" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="75" Click="btnAddGrid_Click"/>
             <Button Name="btnAddTree" Content="Add tree" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="75" Click="btnAddTree_Click"/>
+            <Button Name="btnSpiral" Content="Add spiral" HorizontalAlignment="Left" Margin="330,10,0,0" VerticalAlignment="Top" Width="75" Click="btnSpiral_Click"/>
+            <CheckBox Name="chkTangled" Content="Tangled" HorizontalAlignment="Left" Margin="170,35,0,0" VerticalAlignment="Top"/>
+            <CheckBox Name="chkRandomMass" Content="Random mass" HorizontalAlignment="Left" Margin="170,55,0,0" VerticalAlignment="Top"/>
+             <ComboBox Name="cmboPhysics" HorizontalAlignment="Right" Margin="0,3,333,0" VerticalAlignment="Top" Width="104" SelectionChanged="cmboPhysics_SelectionChanged" />
+           
+            <TextBlock HorizontalAlignment="Right" Margin="0,3,239,0" TextWrapping="Wrap" Text="World paramters" VerticalAlignment="Top"/>
+            <ContentControl Name="panelContent" Content="{Binding Path=Physics, ElementName=myNodeControl}" ContentTemplateSelector="{StaticResource physicsTemplateSelector}" HorizontalAlignment="Right" Margin="0,19,148,0" VerticalAlignment="Top" Width="180" />
+            <TextBlock HorizontalAlignment="Right" Margin="0,3,51,0" TextWrapping="Wrap" Text="Node parameters" VerticalAlignment="Top"/>
             <StackPanel Name="panelNodeOptions" HorizontalAlignment="Right" Margin="0,19,0,0" Width="143">
                 <StackPanel Orientation="Horizontal" >
                     <TextBlock Width="70" Text="Mass"/>
@@ -89,13 +99,6 @@
                     <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" IsChecked="{Binding Path=IsPositionLocked}" />
                 </StackPanel>
             </StackPanel>
-            <TextBlock HorizontalAlignment="Right" Margin="0,3,239,0" TextWrapping="Wrap" Text="World paramters" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Right" Margin="0,3,51,0" TextWrapping="Wrap" Text="Node parameters" VerticalAlignment="Top"/>
-            <CheckBox Name="chkTangled" Content="Tangled" HorizontalAlignment="Left" Margin="170,35,0,0" VerticalAlignment="Top"/>
-            <CheckBox Name="chkRandomMass" Content="Random mass" HorizontalAlignment="Left" Margin="170,55,0,0" VerticalAlignment="Top"/>
-            <Button Name="btnFitAll" Content="Fit all" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="btnFitAll_Click"/>
-            <Button Name="btnSpiral" Content="Add spiral" HorizontalAlignment="Left" Margin="330,10,0,0" VerticalAlignment="Top" Width="75" Click="btnSpiral_Click"/>
-            <u:NumericUpDown HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="75" Value="{Binding ElementName=myNodeControl, Path=Zoom, Mode=TwoWay}" Increment="0.01" />
         </Grid>
         <Grid ClipToBounds="True">
             <z:NodeControl x:Name="myNodeControl" NodeClicked="myNodeControl_NodeClicked" />

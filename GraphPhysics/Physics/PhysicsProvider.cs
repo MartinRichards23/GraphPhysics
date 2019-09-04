@@ -1,11 +1,10 @@
-﻿using System;
+﻿using GraphPhysics.Model;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Windows;
-using GraphPhysics.Model;
 using System.Threading.Tasks;
-using SystemPlus.ComponentModel;
+using System.Windows;
 using SystemPlus;
+using SystemPlus.ComponentModel;
 using SystemPlus.Windows;
 
 namespace GraphPhysics.Physics

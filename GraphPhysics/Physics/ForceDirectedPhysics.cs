@@ -1,7 +1,7 @@
-﻿using System;
+﻿using GraphPhysics.Model;
+using System;
 using System.Threading.Tasks;
 using System.Windows;
-using GraphPhysics.Model;
 
 namespace GraphPhysics.Physics
 {

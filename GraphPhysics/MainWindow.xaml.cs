@@ -62,7 +62,7 @@ namespace GraphPhysics
             {
                 panelNodeOptions.DataContext = node;
             }
-            else if (args.MouseButtonArgs.ClickCount == 3)
+            else if (args.MouseButtonArgs.ClickCount == 2 && node != null)
             {
                 myNodeControl.AnimatePan(node.Position);
                 myNodeControl.AnimateZoom(1);

@@ -1,5 +1,4 @@
-﻿using GraphPhysics.Resources;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
 using SystemPlus.Windows.Media;

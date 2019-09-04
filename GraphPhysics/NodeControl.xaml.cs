@@ -148,14 +148,12 @@ namespace GraphPhysics
 
         protected void OnPropertyChanged(string name)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
         protected void OnNodeClicked(NodeBase node, MouseButtonEventArgs args)
         {
-            if (NodeClicked != null)
-                NodeClicked(new GraphItemClickedEventArgs(node, args));
+            NodeClicked?.Invoke(new GraphItemClickedEventArgs(node, args));
         }
 
         void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
@@ -295,8 +293,7 @@ namespace GraphPhysics
 
                 if (upNode != null)
                 {
-                    if (edgeAddingHandler != null)
-                        edgeAddingHandler(clickedNode, upNode);
+                    edgeAddingHandler?.Invoke(clickedNode, upNode);
                 }
 
                 // todo: set momentum of node
