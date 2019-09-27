@@ -9,6 +9,9 @@ using SystemPlus.Windows;
 
 namespace GraphPhysics.Physics
 {
+    /// <summary>
+    /// Base class for environmental physics implementations
+    /// </summary>
     public abstract class PhysicsProvider : NotifyPropertyChanged
     {
         #region Fields
@@ -30,14 +33,6 @@ namespace GraphPhysics.Physics
         DateTime fpsTime = DateTime.UtcNow;
 
         #endregion
-
-        internal void Initialise(MyCanvas canvas)
-        {
-            this.canvas = canvas;
-            this.quadTree = canvas.QuadTree;
-            nodes = canvas.Nodes;
-            edges = canvas.Edges;
-        }
 
         #region Properties
 
@@ -101,6 +96,14 @@ namespace GraphPhysics.Physics
         public abstract string Name { get; }
 
         #endregion
+
+        internal void Initialise(MyCanvas canvas)
+        {
+            this.canvas = canvas;
+            this.quadTree = canvas.QuadTree;
+            nodes = canvas.Nodes;
+            edges = canvas.Edges;
+        }
 
         #region Public methods
 
@@ -202,6 +205,8 @@ namespace GraphPhysics.Physics
 
         #endregion
 
+        #region Statics
+
         static void CalcNodeCollision(NodeBase nodeA, NodeBase nodeB, double bounceEfficiency)
         {
             double length = (nodeA.Position - nodeB.Position).Length;
@@ -249,5 +254,7 @@ namespace GraphPhysics.Physics
 
             return false;
         }
+
+        #endregion
     }
 }

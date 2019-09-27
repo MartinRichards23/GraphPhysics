@@ -5,6 +5,9 @@ using System.Windows;
 
 namespace GraphPhysics.Physics
 {
+    /// <summary>
+    /// Force directed Node-Edge physics implementation
+    /// </summary>
     internal class ForceDirectedPhysics : PhysicsProvider
     {
         #region Fields
@@ -49,7 +52,7 @@ namespace GraphPhysics.Physics
 
         #endregion
 
-        void AddRepulsionForce(NodeBase nodeA, NodeBase nodeB)
+        private void AddRepulsionForce(NodeBase nodeA, NodeBase nodeB)
         {
             Vector v = nodeA.Position - nodeB.Position;
             double dist = v.Length - nodeA.Radius - nodeB.Radius;
@@ -66,7 +69,7 @@ namespace GraphPhysics.Physics
             }
         }
 
-        void AddAttractionForce(EdgeBase edge)
+        private void AddAttractionForce(EdgeBase edge)
         {
             NodeBase nodeFrom = edge.From;
             NodeBase nodeTo = edge.To;

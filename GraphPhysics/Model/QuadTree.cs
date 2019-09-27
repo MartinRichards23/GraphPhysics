@@ -5,36 +5,36 @@ using SystemPlus;
 
 namespace GraphPhysics.Model
 {
+    /// <summary>
+    /// A simple QuadTree implementation
+    /// </summary>
     public class QuadTree
     {
         #region Fields
 
-        int width = 40;
-        int height = 40;
         double quadrantLength = 1500;
-        Quadrant[,] quadrants;
 
         #endregion
 
         public QuadTree()
         {
             // create the quadrants
-            quadrants = new Quadrant[width, height];
-            for (int x = 0; x < width; x++)
+            Quadrants = new Quadrant[Width, Height];
+            for (int x = 0; x < Width; x++)
             {
-                for (int y = 0; y < height; y++)
+                for (int y = 0; y < Height; y++)
                 {
                     Rect r = new Rect(x * quadrantLength, y * quadrantLength, quadrantLength, quadrantLength);
-                    quadrants[x, y] = new Quadrant(x, y, r);
+                    Quadrants[x, y] = new Quadrant(x, y, r);
                 }
             }
 
             // set the neigbours
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (int y = 0; y < height; y++)
+                for (int y = 0; y < Height; y++)
                 {
-                    Quadrant quad = quadrants[x, y];
+                    Quadrant quad = Quadrants[x, y];
 
                     quad.north = TryGetQuadrant(x, y - 1);
                     quad.northEast = TryGetQuadrant(x + 1, y - 1);
@@ -50,25 +50,13 @@ namespace GraphPhysics.Model
 
         #region Properties
 
-        public int Width
-        {
-            get { return width; }
-        }
-
-        public int Height
-        {
-            get { return height; }
-        }
-
-        internal Quadrant[,] Quadrants
-        {
-            get { return quadrants; }
-            set { quadrants = value; }
-        }
+        public int Width { get; } = 40;
+        public int Height { get; } = 40;
+        internal Quadrant[,] Quadrants { get; set; }
 
         #endregion
 
-        #region Methods
+        #region Public methods
 
         public void AddNode(NodeBase node)
         {
@@ -91,11 +79,11 @@ namespace GraphPhysics.Model
 
         public void Clear()
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (int y = 0; y < height; y++)
+                for (int y = 0; y < Height; y++)
                 {
-                    Quadrant q = quadrants[x, y];
+                    Quadrant q = Quadrants[x, y];
                     q.Clear();
                 }
             }
@@ -106,12 +94,12 @@ namespace GraphPhysics.Model
         /// </summary>
         public Quadrant TryGetQuadrant(int x, int y)
         {
-            if (x < 0 || x >= width)
+            if (x < 0 || x >= Width)
                 return null;
-            if (y < 0 || y >= height)
+            if (y < 0 || y >= Height)
                 return null;
 
-            return quadrants[x, y];
+            return Quadrants[x, y];
         }
 
         /// <summary>
@@ -123,10 +111,10 @@ namespace GraphPhysics.Model
             int y = (int)Math.Floor(p.Y / quadrantLength);
 
             // clip to bounds of quadrants
-            x = MathTools.Clip(x, 0, width - 1);
-            y = MathTools.Clip(y, 0, height - 1);
+            x = MathTools.Clip(x, 0, Width - 1);
+            y = MathTools.Clip(y, 0, Height - 1);
 
-            return quadrants[x, y];
+            return Quadrants[x, y];
         }
 
         /// <summary>
@@ -141,7 +129,7 @@ namespace GraphPhysics.Model
             {
                 for (int y = topLeftQuad.Y; y <= bottomRightQuad.Y; y++)
                 {
-                    Quadrant q = quadrants[x, y];
+                    Quadrant q = Quadrants[x, y];
 
                     foreach (NodeBase n in q.Nodes)
                     {
@@ -158,11 +146,11 @@ namespace GraphPhysics.Model
         /// </summary>
         public IEnumerable<Quadrant> AllQuadrants()
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (int y = 0; y < height; y++)
+                for (int y = 0; y < Height; y++)
                 {
-                    Quadrant q = quadrants[x, y];
+                    Quadrant q = Quadrants[x, y];
                     yield return q;
                 }
             }
@@ -188,8 +176,8 @@ namespace GraphPhysics.Model
         /// </summary>
         public Point GetCentre()
         {
-            double totalWidth = width * quadrantLength;
-            double totalHeight = height * quadrantLength;
+            double totalWidth = Width * quadrantLength;
+            double totalHeight = Height * quadrantLength;
 
             return new Point(totalWidth / 2, totalHeight / 2);
         }

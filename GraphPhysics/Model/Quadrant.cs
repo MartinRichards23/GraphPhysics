@@ -3,13 +3,12 @@ using System.Windows;
 
 namespace GraphPhysics.Model
 {
+    /// <summary>
+    /// A quadrant, part of a QuadTree
+    /// </summary>
     public class Quadrant
     {
         #region Fields
-
-        readonly int x;
-        readonly int y;
-        readonly Rect rect;
 
         readonly List<NodeBase> nodes = new List<NodeBase>();
 
@@ -27,27 +26,16 @@ namespace GraphPhysics.Model
 
         public Quadrant(int x, int y, Rect rect)
         {
-            this.x = x;
-            this.y = y;
-            this.rect = rect;
+            X = x;
+            Y = y;
+            Rect = rect;
         }
 
         #region Properties
 
-        public int X
-        {
-            get { return x; }
-        }
-
-        public int Y
-        {
-            get { return y; }
-        }
-
-        public Rect Rect
-        {
-            get { return rect; }
-        }
+        public int X { get; }
+        public int Y { get; }
+        public Rect Rect { get; }
 
         public IList<NodeBase> Nodes
         {
@@ -56,7 +44,7 @@ namespace GraphPhysics.Model
 
         #endregion
 
-        #region Methods
+        #region Public methods
 
         public void AddNode(NodeBase node)
         {
@@ -162,7 +150,7 @@ namespace GraphPhysics.Model
 
         public override string ToString()
         {
-            return string.Format("x={0}, y={1}", x, y);
+            return string.Format("x={0}, y={1}", X, Y);
         }
 
         #endregion

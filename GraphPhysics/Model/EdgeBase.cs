@@ -4,6 +4,9 @@ using SystemPlus.Windows;
 
 namespace GraphPhysics.Model
 {
+    /// <summary>
+    /// Base class for Edges
+    /// </summary>
     public abstract class EdgeBase : GraphItem
     {
         #region Fields

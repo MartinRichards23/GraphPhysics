@@ -5,6 +5,9 @@ using SystemPlus.Windows;
 
 namespace GraphPhysics.Model
 {
+    /// <summary>
+    /// Base class for Nodes
+    /// </summary>
     public abstract class NodeBase : GraphItem
     {
         #region Fields

@@ -7,9 +7,13 @@ namespace GraphPhysics.Model
 {
     public sealed class Node : NodeBase
     {
+        #region Fields
+
         Brush brush;
         FormattedText formattedText;
         ImageSource image;
+
+        #endregion
 
         public Node(Point p, double mass, Color colour)
             : base(p, mass, colour)
