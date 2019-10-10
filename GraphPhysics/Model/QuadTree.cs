@@ -124,7 +124,7 @@ namespace GraphPhysics.Model
         {
             Quadrant topLeftQuad = GetQuadrant(rectangle.TopLeft);
             Quadrant bottomRightQuad = GetQuadrant(rectangle.BottomRight);
-            
+
             for (int x = topLeftQuad.X; x <= bottomRightQuad.X; x++)
             {
                 for (int y = topLeftQuad.Y; y <= bottomRightQuad.Y; y++)
@@ -163,7 +163,7 @@ namespace GraphPhysics.Model
         {
             foreach (Quadrant q in AllQuadrants())
             {
-                for (int i = q.Nodes.Count -1; i >= 0; i--)
+                for (int i = q.Nodes.Count - 1; i >= 0; i--)
                 {
                     NodeBase n = q.Nodes[i];
                     yield return n;

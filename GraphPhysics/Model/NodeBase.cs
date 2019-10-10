@@ -37,7 +37,7 @@ namespace GraphPhysics.Model
         {
             index = indexCount++;
             Position = p;
-            Mass = mass;        
+            Mass = mass;
         }
 
         #region Properties
@@ -121,6 +121,6 @@ namespace GraphPhysics.Model
                 return true;
 
             return false;
-        }       
+        }
     }
 }

@@ -49,7 +49,7 @@ namespace GraphPhysics
             InitializeComponent();
 
             // set the default handler for adding edges
-            edgeAddingHandler = delegate(NodeBase from, NodeBase to)
+            edgeAddingHandler = delegate (NodeBase from, NodeBase to)
             {
                 EdgeBase edge = new Edge(from, to);
                 myCanvas.AddEdge(edge);
@@ -60,7 +60,7 @@ namespace GraphPhysics
             marqueePen = new Pen(BrushCache.GetBrush(Colors.White), 3);
             marqueePen.Freeze();
             marqueeFill = BrushCache.GetBrush(Color.FromArgb(50, 255, 255, 255));
-            
+
             ResetView();
         }
 
@@ -208,7 +208,7 @@ namespace GraphPhysics
                         //}
                     }
                 }
-                else if( mouseDownEdge != null)
+                else if (mouseDownEdge != null)
                 {
 
                 }
@@ -432,7 +432,7 @@ namespace GraphPhysics
         {
             myCanvas.ClearAll();
         }
-        
+
         /// <summary>
         /// Animate moves current position
         /// </summary>

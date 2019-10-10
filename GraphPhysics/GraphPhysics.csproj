@@ -6,11 +6,6 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SystemPlus">
-      <HintPath>.\NodeGraph\SystemPlus.dll</HintPath>
-    </Reference>
-    <Reference Include="SystemPlus.Windows">
-      <HintPath>.\NodeGraphWpf\NodeGraph\SystemPlus.Windows.dll</HintPath>
-    </Reference>
+    <PackageReference Include="SystemPlus.Windows" Version="1.0.0" />
   </ItemGroup>
 </Project>

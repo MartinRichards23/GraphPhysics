@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
 using SystemPlus.ComponentModel;
 using SystemPlus.Windows.Media;
@@ -13,7 +12,7 @@ namespace GraphPhysics.Model
         bool isSelected;
 
         Color colour;
-        
+
         protected static readonly Brush highlightBrush;
 
         public static double DetailThreshold = 0.6;
@@ -22,7 +21,7 @@ namespace GraphPhysics.Model
 
         static GraphItem()
         {
-            highlightBrush = BrushCache.GetBrush(Color.FromArgb(150,255,255,0));
+            highlightBrush = BrushCache.GetBrush(Color.FromArgb(150, 255, 255, 0));
         }
 
         protected GraphItem(Color colour)
@@ -43,7 +42,7 @@ namespace GraphPhysics.Model
             get { return colour; }
             set
             {
-                colour = value;                
+                colour = value;
                 OnColourChanged();
             }
         }

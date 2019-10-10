@@ -123,7 +123,7 @@ namespace GraphPhysics.Physics
                     for (int j = 0; j < nodeA.FromEdges.Count; j++)
                     {
                         EdgeBase edge = nodeA.FromEdges[j];
-                        AddAttractionForce(edge);                        
+                        AddAttractionForce(edge);
                     }
                 }
             });

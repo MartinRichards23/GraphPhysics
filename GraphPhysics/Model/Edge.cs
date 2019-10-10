@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
-using SystemPlus.Windows;
 using SystemPlus.Windows.Media;
 
 namespace GraphPhysics.Model
@@ -51,7 +50,7 @@ namespace GraphPhysics.Model
             //{
             //    Point position = VectorTools.MidPoint(From.Position, To.Position);
             //    Point textPosition = new Point(position.X - formattedText.Width / 2, position.Y - formattedText.Height / 2);
-                
+
             //    dc.DrawText(formattedText, textPosition);
             //}
         }

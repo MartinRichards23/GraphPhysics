@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace GraphPhysics
 {
-    public delegate void EdgeAddedHandler (NodeBase from , NodeBase to);
+    public delegate void EdgeAddedHandler(NodeBase from, NodeBase to);
 
     public delegate void GraphItemClickedHandler(GraphItemClickedEventArgs args);
 

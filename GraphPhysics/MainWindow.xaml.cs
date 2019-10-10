@@ -1,12 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using GraphPhysics.Model;
+﻿using GraphPhysics.Model;
 using GraphPhysics.Physics;
-using System.ComponentModel;
-using System.Windows.Media;
 using System;
-using SystemPlus.Windows.Media;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using SystemPlus.Windows;
+using SystemPlus.Windows.Media;
 
 namespace GraphPhysics
 {
@@ -17,12 +16,12 @@ namespace GraphPhysics
         public MainWindow()
         {
             InitializeComponent();
-            
+
             cmboPhysics.Items.Add(new NoPhysics());
             cmboPhysics.Items.Add(new ForceDirectedPhysics());
             cmboPhysics.Items.Add(new NewtonianPhysics());
 
-            cmboPhysics.SelectedIndex = 1;            
+            cmboPhysics.SelectedIndex = 1;
         }
 
         #region Event handlers
@@ -32,7 +31,7 @@ namespace GraphPhysics
             PhysicsProvider physics = (PhysicsProvider)cmboPhysics.SelectedItem;
             myNodeControl.Physics = physics;
         }
-        
+
         void BtnAddGrid_Click(object sender, RoutedEventArgs e)
         {
             AddGrid(10, 10, chkTangled.IsChecked == true, chkRandomMass.IsChecked == true);
@@ -83,7 +82,7 @@ namespace GraphPhysics
         public void AddOne()
         {
             NodeBase n1 = new Node(myNodeControl.Centre, 1, Colors.Red);
-            NodeBase n2 = new Node(myNodeControl.Centre + new Vector(100,100), 1, Colors.Blue);
+            NodeBase n2 = new Node(myNodeControl.Centre + new Vector(100, 100), 1, Colors.Blue);
 
             myNodeControl.AddNode(n1);
             myNodeControl.AddNode(n2);
@@ -174,12 +173,12 @@ namespace GraphPhysics
                 AddSubNodes(child, depth + 1, maxDepth);
             }
         }
-        
+
         public void AddSpiral(int count)
         {
             Point origin = myNodeControl.Centre;
             SpiralMaker spiral = new SpiralMaker(origin, 5, 200, 200);
-            
+
             NodeBase parent = new Node(origin, 0.5, Colors.Green);
             myNodeControl.AddNode(parent);
 
@@ -189,7 +188,7 @@ namespace GraphPhysics
                 double mass = 0.5;
 
                 Point p = spiral.NextPoint();
-                
+
                 NodeBase child = new Node(p, mass, col);
                 myNodeControl.AddNode(child);
 

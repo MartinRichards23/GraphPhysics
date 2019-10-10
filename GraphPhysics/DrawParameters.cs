@@ -12,6 +12,6 @@
         public double ZoomLevel
         {
             get { return zoomLevel; }
-        }        
+        }
     }
 }

@@ -52,7 +52,7 @@ namespace GraphPhysics.Physics
         public double Time
         {
             get { return time; }
-            set 
+            set
             {
                 if (time != value)
                 {
@@ -125,7 +125,7 @@ namespace GraphPhysics.Physics
 
             UpdatePositions(duration);
         }
-        
+
         public override string ToString()
         {
             return Name;

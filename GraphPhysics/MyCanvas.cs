@@ -1,19 +1,17 @@
-﻿using System;
+﻿using GraphPhysics.Model;
+using GraphPhysics.Physics;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
-using GraphPhysics.Model;
-using GraphPhysics.Physics;
-using System.Globalization;
-using System.Linq;
-using System.ComponentModel;
-using System.Windows.Media.Effects;
-using SystemPlus.Windows.Media;
-using SystemPlus.Windows;
 using SystemPlus.Threading;
+using SystemPlus.Windows;
+using SystemPlus.Windows.Media;
 
 namespace GraphPhysics
 {
@@ -199,7 +197,7 @@ namespace GraphPhysics
 
             while (true)
             {
-                delayer.Wait();
+                delayer.Delay();
 
                 DateTime now = DateTime.UtcNow;
                 TimeSpan duration = now - lastUpdate;
